@@ -5,6 +5,7 @@ import android.graphics.Point;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -25,6 +26,12 @@ public class StartActivity extends AppCompatActivity {
     private ImageView orange;
     private ImageView pink;
     private ImageView black;
+
+    //speed
+    private int shipSpeed;
+    private int pinkSpeed;
+    private int orangeSpeed;
+    private int blackSpeed;
 
     //size
     private int frameHeight;
@@ -78,6 +85,17 @@ public class StartActivity extends AppCompatActivity {
         screenWidth = size.x;
         screenHeight = size.y;
 
+        shipSpeed = Math.round(screenHeight / 65F);
+        orangeSpeed = Math.round(screenWidth / 60F);
+        pinkSpeed = Math.round(screenWidth / 50F);
+        blackSpeed = Math.round(screenWidth / 45F);
+
+        /*
+        Log.v("SPEED_SHIP", shipSpeed+"");
+        Log.v("SPEED_ORANGE", orangeSpeed+"");
+        Log.v("SPEED_PINK", pinkSpeed+"");
+        Log.v("SPEED_BLACK", blackSpeed+"");
+        */
 
         //move out of screen
         orange.setX(10000);
@@ -90,11 +108,11 @@ public class StartActivity extends AppCompatActivity {
         scoreLabel.setText(getString(R.string.score) + " " + score);
     }
 
-    public void changePosition() {//TODO
+    public void changePosition() {
 
         hitCheck();
 
-        orangeX -= 25;
+        orangeX -= orangeSpeed;
         if (orangeX < 0) {
             orangeX = screenWidth + 20;
             orangeY = (int) Math.floor(Math.random() * (frameHeight - orange.getHeight()));
@@ -102,7 +120,7 @@ public class StartActivity extends AppCompatActivity {
         orange.setX(orangeX);
         orange.setY(orangeY);
 
-        blackX -= 35;
+        blackX -= blackSpeed;
         if (blackX < 0) {
             blackX = screenWidth + 10;
             blackY = (int) Math.floor(Math.random() * (frameHeight - black.getHeight()));
@@ -110,7 +128,7 @@ public class StartActivity extends AppCompatActivity {
         black.setX(blackX);
         black.setY(blackY);
 
-        pinkX -= 30;
+        pinkX -= pinkSpeed;
         if (pinkX < 0) {
             pinkX = screenWidth + 5000;
             pinkY = (int) Math.floor(Math.random() * (frameHeight - pink.getHeight()));
@@ -120,9 +138,9 @@ public class StartActivity extends AppCompatActivity {
 
         //move ship
         if (action_flag) {
-            shipY -= 20;
+            shipY -= shipSpeed;
         } else {
-            shipY += 20;
+            shipY += shipSpeed;
         }
 
 

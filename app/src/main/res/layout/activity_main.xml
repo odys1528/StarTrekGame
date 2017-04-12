@@ -44,20 +44,20 @@
 
         <ImageView
             android:id="@+id/orange"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
             android:src="@drawable/orange"/>
 
         <ImageView
             android:id="@+id/black"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/black"/>
 
         <ImageView
             android:id="@+id/pink"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
             android:src="@drawable/pink"/>
 
 

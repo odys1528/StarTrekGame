@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Star Trek The Game</string>
+    <string name="score">Score: 300</string>
 </resources>

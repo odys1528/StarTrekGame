@@ -3,4 +3,7 @@
     <string name="score">Punkty:</string>
     <string name="start_text">Pacnij by zacząć</string>
     <string name="fontColor">#60ff00</string>
+    <string name="game_over">KONIEC GRY</string>
+    <string name="high_score">Rekord:</string>
+    <string name="again">Jeszcze!</string>
 </resources>

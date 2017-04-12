@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     //size
     private int frameHeight;
-    private int shipSize;
+    private int shipHeight;
+    private int shipWidth;
     private int screenWidth;
     private int screenHeight;
     private int orangeX;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private int blackX;
     private int blackY;
 
+    //score
+    private int score = 0;
 
     //position
     private int shipY;
@@ -79,9 +82,12 @@ public class MainActivity extends AppCompatActivity {
         black.setX(10000);
         black.setY(10000);
 
+        scoreLabel.setText(getString(R.string.score) + " " + score);
     }
 
     public void changePosition() {//TODO
+
+        hitCheck();
 
         orangeX -= 25;
         if (orangeX < 0) {
@@ -117,10 +123,43 @@ public class MainActivity extends AppCompatActivity {
 
         //check position
         if (shipY < 0) shipY = 0;
-        if (shipY > frameHeight - shipSize) shipY = frameHeight - shipSize;
+        if (shipY > frameHeight - shipHeight) shipY = frameHeight - shipHeight;
         ship.setY(shipY);
+
+        scoreLabel.setText(getString(R.string.score) + " " + score);
     }
 
+
+    public void hitCheck() {
+
+        int orangeCenterX = orangeX + orange.getWidth() / 2;
+        int orangeCenterY = orangeY + orange.getHeight() / 2;
+
+        if (0 <= orangeCenterX && orangeCenterX <= shipWidth && shipY <= orangeCenterY && orangeCenterY <= shipY + shipHeight) {
+            orangeX = -10;
+            score += 10;
+        }
+
+        int pinkCenterX = pinkX + pink.getWidth() / 2;
+        int pinkCenterY = pinkY + pink.getHeight() / 2;
+
+        if (0 <= pinkCenterX && pinkCenterX <= shipWidth && shipY <= pinkCenterY && pinkCenterY <= shipY + shipHeight) {
+            pinkX = -10;
+            score += 30;
+        }
+
+        int blackCenterX = blackX + black.getWidth() / 2;
+        int blackCenterY = blackY + black.getHeight() / 2;
+
+        if (0 <= blackCenterX && blackCenterX <= shipWidth && shipY <= blackCenterY && blackCenterY <= shipY + shipHeight) {
+
+            timer.cancel();
+            timer = null;
+
+
+        }
+
+    }
 
     public boolean onTouchEvent(MotionEvent me) {
 
@@ -132,7 +171,8 @@ public class MainActivity extends AppCompatActivity {
             frameHeight = frame.getHeight();
 
             shipY = (int) ship.getY();
-            shipSize = ship.getHeight();
+            shipHeight = ship.getHeight();
+            shipWidth = ship.getWidth();
 
             startLabel.setVisibility(View.GONE);
 

@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/game_over"
+        android:textAllCaps="true"
         android:textColor="@color/colorAccent"
         android:textSize="30sp"/>
 
@@ -42,5 +43,12 @@
         android:text="@string/again"
         android:textAllCaps="false"
         android:onClick="tryAgain"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exit"
+        android:layout_marginTop="5dp"
+        android:onClick="endGame"/>
 
 </LinearLayout>

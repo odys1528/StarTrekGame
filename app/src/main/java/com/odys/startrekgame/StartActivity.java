@@ -48,6 +48,7 @@ public class StartActivity extends AppCompatActivity {
     //init class
     private Handler handler = new Handler();
     private  Timer timer = new Timer();
+    private SoundPlayer sound;
 
     //status check
     private boolean action_flag = false;
@@ -58,6 +59,8 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        sound = new SoundPlayer(this);
 
         scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         startLabel = (TextView) findViewById(R.id.startLabel);
@@ -140,6 +143,7 @@ public class StartActivity extends AppCompatActivity {
         if (0 <= orangeCenterX && orangeCenterX <= shipWidth && shipY <= orangeCenterY && orangeCenterY <= shipY + shipHeight) {
             orangeX = -10;
             score += 10;
+            sound.playHitSound();
         }
 
         int pinkCenterX = pinkX + pink.getWidth() / 2;
@@ -148,6 +152,7 @@ public class StartActivity extends AppCompatActivity {
         if (0 <= pinkCenterX && pinkCenterX <= shipWidth && shipY <= pinkCenterY && pinkCenterY <= shipY + shipHeight) {
             pinkX = -10;
             score += 30;
+            sound.playHitSound();
         }
 
         int blackCenterX = blackX + black.getWidth() / 2;
@@ -157,6 +162,9 @@ public class StartActivity extends AppCompatActivity {
 
             timer.cancel();
             timer = null;
+
+            sound.playOverSound();
+            sound.playSpockSound();
 
             finish();
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);

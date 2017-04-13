@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startGame(View view) {
-        finish();
         startActivity(new Intent(getApplicationContext(), StartActivity.class));
+        finish();
     }
 
     @Override

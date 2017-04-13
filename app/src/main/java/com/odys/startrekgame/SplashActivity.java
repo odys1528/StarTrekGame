@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private SoundPlayer sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +15,7 @@ public class SplashActivity extends AppCompatActivity {
 
         MediaPlayer player = MediaPlayer.create(this, R.raw.music);
         player.setLooping(true);
+        player.setVolume(0.3f, 0.3f);
         player.start();
 
         MediaPlayer player2 = MediaPlayer.create(this, R.raw.loading);

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="80dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -26,20 +25,26 @@
             android:textColor="@color/colorAccent"
             android:textSize="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="25dp"/>
+            android:layout_marginLeft="20dp"/>
     </LinearLayout>
 
-    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="450dp"
-        android:layout_height="30dp"
-        app:rcBackgroundColor="#ffffff"
-        app:rcBackgroundPadding="1dp"
-        app:rcMax="1.0"
-        app:rcProgress="0.5"
-        app:rcProgressColor="@color/colorAccent"
-        app:rcRadius="7dp"
-        app:rcReverse="false"
+        android:layout_height="50dp"
+        android:max="100"
+        android:progress="100"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="20dp"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="450dp"
+        android:layout_height="50dp"
+        android:max="100"
+        android:progress="100"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

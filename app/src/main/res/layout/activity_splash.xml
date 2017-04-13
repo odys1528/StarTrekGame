@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/title"
             android:layout_gravity="center"
-            android:paddingLeft="30dp"/>
+            android:paddingLeft="35dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,12 +28,18 @@
             android:layout_gravity="center"
             android:layout_marginLeft="25dp"/>
     </LinearLayout>
-<!--    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:lottie_fileName="progress_bar.json"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true" />
--->
+
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        android:layout_width="450dp"
+        android:layout_height="30dp"
+        app:rcBackgroundColor="#ffffff"
+        app:rcBackgroundPadding="1dp"
+        app:rcMax="1.0"
+        app:rcProgress="0.5"
+        app:rcProgressColor="@color/colorAccent"
+        app:rcRadius="7dp"
+        app:rcReverse="false"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"/>
+
 </LinearLayout>

@@ -38,8 +38,8 @@ public class ResultActivity extends AppCompatActivity {
 
 
     public void tryAgain(View view) {
-        finish();
         startActivity(new Intent(getApplicationContext(), StartActivity.class));
+        finish();
     }
 
 

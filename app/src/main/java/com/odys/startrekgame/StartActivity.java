@@ -107,10 +107,10 @@ public class StartActivity extends AppCompatActivity {
         screenWidth = size.x;
         screenHeight = size.y;
 
-        shipSpeed = Math.round(screenHeight / 65F);
-        orangeSpeed = Math.round(screenWidth / 60F);
-        pinkSpeed = Math.round(screenWidth / 50F);
-        blackSpeed = Math.round(screenWidth / 45F);
+        shipSpeed = 20;
+        orangeSpeed = 20;
+        pinkSpeed = 30;
+        blackSpeed = 40;
 
         /*
         Log.v("SPEED_SHIP", shipSpeed+"");
@@ -183,6 +183,7 @@ public class StartActivity extends AppCompatActivity {
         if (0 <= orangeCenterX && orangeCenterX <= shipWidth && shipY <= orangeCenterY && orangeCenterY <= shipY + shipHeight) {
             orangeX = -10;
             score += 10;
+            increaseSpeed();
             sound.playHitSound();
         }
 
@@ -192,6 +193,7 @@ public class StartActivity extends AppCompatActivity {
         if (0 <= pinkCenterX && pinkCenterX <= shipWidth && shipY <= pinkCenterY && pinkCenterY <= shipY + shipHeight) {
             pinkX = -10;
             score += 30;
+            increaseSpeed();
             sound.playHitSound();
         }
 
@@ -212,6 +214,12 @@ public class StartActivity extends AppCompatActivity {
             finish();
         }
 
+    }
+
+    public void increaseSpeed() {
+        orangeSpeed++;
+        pinkSpeed++;
+        blackSpeed++;
     }
 
     public boolean onTouchEvent(MotionEvent me) {

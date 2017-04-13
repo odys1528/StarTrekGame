@@ -36,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    for (int i = 0; i <= 100; i+=10) {
+                    for (int i = 10; i <= 100; i+=10) {
                         progressBar.setProgress(0);
                         for (int k = 0; k <= 100; k++) {
                             progressBar.setProgress(k);

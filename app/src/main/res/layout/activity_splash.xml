@@ -34,7 +34,7 @@
         android:layout_width="450dp"
         android:layout_height="50dp"
         android:max="100"
-        android:progress="100"
+        android:progress="0"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
 
@@ -44,7 +44,7 @@
         android:layout_width="450dp"
         android:layout_height="50dp"
         android:max="100"
-        android:progress="100"
+        android:progress="0"
         android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

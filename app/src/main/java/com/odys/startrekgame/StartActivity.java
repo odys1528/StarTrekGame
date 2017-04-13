@@ -206,11 +206,10 @@ public class StartActivity extends AppCompatActivity {
             sound.playOverSound();
             sound.playSpockSound();
 
-            finish();
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             intent.putExtra("SCORE", score);
             startActivity(intent);
-
+            finish();
         }
 
     }

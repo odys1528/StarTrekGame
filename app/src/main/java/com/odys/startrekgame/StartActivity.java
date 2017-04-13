@@ -54,7 +54,7 @@ public class StartActivity extends AppCompatActivity {
 
     //init class
     private Handler handler = new Handler();
-    private  Timer timer = new Timer();
+    private Timer timer = new Timer();
     private SoundPlayer sound;
 
     //status check

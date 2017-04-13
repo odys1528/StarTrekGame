@@ -3,10 +3,12 @@ package com.odys.startrekgame;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
+
+    private SoundPlayer sound;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,13 +18,14 @@ public class SplashActivity extends AppCompatActivity {
         player.setLooping(true);
         player.start();
 
-
+        MediaPlayer player2 = MediaPlayer.create(this, R.raw.loading);
+        player2.start();
 
         Thread thread = new Thread() {
             @Override
             public void run() {
                 try {
-                    sleep(3000);
+                    sleep(10000);
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();

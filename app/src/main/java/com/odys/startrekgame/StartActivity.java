@@ -20,6 +20,8 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import tyrantgit.explosionfield.ExplosionField;
+
 public class StartActivity extends AppCompatActivity {
 
     private TextView scoreLabel;
@@ -228,16 +230,32 @@ public class StartActivity extends AppCompatActivity {
 
         if (0 <= blackCenterX && blackCenterX <= shipWidth && shipY <= blackCenterY && blackCenterY <= shipY + shipHeight) {
 
+            Thread thread = new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        sleep(1500);
+                        Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+                        intent.putExtra("SCORE", score);
+                        startActivity(intent);
+                        finish();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+
             timer.cancel();
             timer = null;
 
             sound.playOverSound();
             sound.playSpockSound();
 
-            Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-            intent.putExtra("SCORE", score);
-            startActivity(intent);
-            finish();
+            final ExplosionField explosionField = ExplosionField.attach2Window(this);
+            black.setVisibility(View.GONE);
+            ship.setVisibility(View.GONE);
+            explosionField.explode(ship);thread.start();
+
         }
 
     }

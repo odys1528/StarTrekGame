@@ -10,9 +10,17 @@ import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 
 public class SplashActivity extends AppCompatActivity {
 
-    ProgressBar progressBar;
-    ProgressBar progressBar2;
+    private ProgressBar progressBar;
+    private ProgressBar progressBar2;
 
+    public static MediaPlayer backgroundMusic;
+    public static MediaPlayer loadingSound;
+    public static MediaPlayer hitSound;
+    public static MediaPlayer overSound;
+    public static MediaPlayer spockSound;
+    public static MediaPlayer muteSound;
+    public static MediaPlayer muteMusic;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +32,19 @@ public class SplashActivity extends AppCompatActivity {
         progressBar2 = (ProgressBar) findViewById(R.id.progress_bar2);
         progressBar2.setMax(100);
 
-        MediaPlayer player = MediaPlayer.create(this, R.raw.music);
-        player.setLooping(true);
-        player.setVolume(0.3f, 0.3f);
-        player.start();
+        backgroundMusic = MediaPlayer.create(this, R.raw.music);
+        backgroundMusic.setLooping(true);
+        backgroundMusic.setVolume(0.3f, 0.3f);
+        backgroundMusic.start();
 
-        MediaPlayer player2 = MediaPlayer.create(this, R.raw.loading);
-        player2.start();
+        hitSound = MediaPlayer.create(this, R.raw.hit);
+        overSound = MediaPlayer.create(this, R.raw.over);
+        spockSound = MediaPlayer.create(this, R.raw.spock);
+        muteSound = MediaPlayer.create(this, R.raw.silence);
+        muteMusic = MediaPlayer.create(this, R.raw.dubstep);
+
+        loadingSound = MediaPlayer.create(this, R.raw.loading);
+        loadingSound.start();
 
         Thread thread = new Thread() {
             @Override

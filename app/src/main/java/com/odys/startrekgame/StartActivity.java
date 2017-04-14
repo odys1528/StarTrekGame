@@ -63,7 +63,6 @@ public class StartActivity extends AppCompatActivity {
     //init class
     private Handler handler = new Handler();
     private Timer timer = new Timer();
-    private SoundPlayer sound;
 
     //status check
     private boolean action_flag = false;
@@ -94,8 +93,6 @@ public class StartActivity extends AppCompatActivity {
             }
         });
         animator.start();
-
-        sound = new SoundPlayer(this);
 
         scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         startLabel = (TextView) findViewById(R.id.startLabel);
@@ -203,7 +200,7 @@ public class StartActivity extends AppCompatActivity {
             orangeX = -10;
             score += 10;
             increaseSpeed();
-            sound.playHitSound();
+            SplashActivity.hitSound.start();
         }
 
         int pinkCenterX = pinkX + pink.getWidth() / 2;
@@ -213,7 +210,7 @@ public class StartActivity extends AppCompatActivity {
             pinkX = -10;
             score += 30;
             increaseSpeed();
-            sound.playHitSound();
+            SplashActivity.hitSound.start();
         }
 
         int blueCenterX = blueX + blue.getWidth() / 2;
@@ -222,7 +219,7 @@ public class StartActivity extends AppCompatActivity {
         if (0 <= blueCenterX && blueCenterX <= shipWidth && shipY <= blueCenterY && blueCenterY <= shipY + shipHeight) {
             blueX = -10;
             decreaseSpeed();
-            sound.playHitSound();
+            SplashActivity.hitSound.start();
         }
 
         int blackCenterX = blackX + black.getWidth() / 2;
@@ -248,8 +245,8 @@ public class StartActivity extends AppCompatActivity {
             timer.cancel();
             timer = null;
 
-            sound.playOverSound();
-            sound.playSpockSound();
+            SplashActivity.overSound.start();
+            SplashActivity.spockSound.start();
 
             final ExplosionField explosionField = ExplosionField.attach2Window(this);
             black.setVisibility(View.GONE);

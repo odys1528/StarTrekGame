@@ -79,6 +79,12 @@
             android:layout_height="7dp"
             android:src="@drawable/pink"/>
 
+        <ImageView
+            android:id="@+id/blue"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/blue"/>
+
 
     </FrameLayout>
 

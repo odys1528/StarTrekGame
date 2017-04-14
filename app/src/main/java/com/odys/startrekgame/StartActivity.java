@@ -28,12 +28,14 @@ public class StartActivity extends AppCompatActivity {
     private ImageView orange;
     private ImageView pink;
     private ImageView black;
+    private ImageView blue;
 
     //speed
     private int shipSpeed;
     private int pinkSpeed;
     private int orangeSpeed;
     private int blackSpeed;
+    private int blueSpeed;
 
     //size
     private int frameHeight;
@@ -47,6 +49,8 @@ public class StartActivity extends AppCompatActivity {
     private int pinkY;
     private int blackX;
     private int blackY;
+    private int blueX;
+    private int blueY;
 
     //score
     private int score = 0;
@@ -97,6 +101,8 @@ public class StartActivity extends AppCompatActivity {
         orange = (ImageView) findViewById(R.id.orange);
         pink = (ImageView) findViewById(R.id.pink);
         black = (ImageView) findViewById(R.id.black);
+        blue = (ImageView) findViewById(R.id.blue);
+
 
         //get screen size
         WindowManager wm = getWindowManager();
@@ -111,6 +117,7 @@ public class StartActivity extends AppCompatActivity {
         orangeSpeed = 20;
         pinkSpeed = 30;
         blackSpeed = 40;
+        blueSpeed = 50;
 
         /*
         Log.v("SPEED_SHIP", shipSpeed+"");
@@ -126,6 +133,8 @@ public class StartActivity extends AppCompatActivity {
         pink.setY(10000);
         black.setX(10000);
         black.setY(10000);
+        blue.setX(100000);
+        blue.setY(100000);
 
         scoreLabel.setText(getString(R.string.score) + " " + score);
     }
@@ -157,6 +166,14 @@ public class StartActivity extends AppCompatActivity {
         }
         pink.setX(pinkX);
         pink.setY(pinkY);
+
+        blueX -= blueSpeed;
+        if (blueX < 0) {
+            blueX = screenWidth + 100000;
+            blueY = (int) Math.floor(Math.random() * (frameHeight - blue.getHeight()));
+        }
+        blue.setX(blueX);
+        blue.setY(blueY);
 
         //move ship
         if (action_flag) {
@@ -197,6 +214,15 @@ public class StartActivity extends AppCompatActivity {
             sound.playHitSound();
         }
 
+        int blueCenterX = blueX + blue.getWidth() / 2;
+        int blueCenterY = blueY + blue.getHeight() / 2;
+
+        if (0 <= blueCenterX && blueCenterX <= shipWidth && shipY <= blueCenterY && blueCenterY <= shipY + shipHeight) {
+            blueX = -10;
+            decreaseSpeed();
+            sound.playHitSound();
+        }
+
         int blackCenterX = blackX + black.getWidth() / 2;
         int blackCenterY = blackY + black.getHeight() / 2;
 
@@ -220,6 +246,14 @@ public class StartActivity extends AppCompatActivity {
         orangeSpeed++;
         pinkSpeed++;
         blackSpeed++;
+        blueSpeed++;
+    }
+
+    public void decreaseSpeed() {
+        orangeSpeed = Math.max(orangeSpeed / 2, 20);
+        pinkSpeed = Math.max(pinkSpeed / 2, 30);
+        blackSpeed = Math.max(blackSpeed / 2, 30);
+        blueSpeed = Math.max(blueSpeed / 2, 50);
     }
 
     public boolean onTouchEvent(MotionEvent me) {

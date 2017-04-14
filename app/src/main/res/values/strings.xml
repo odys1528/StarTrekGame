@@ -6,11 +6,12 @@
     <string name="game_over">koniec gry</string>
     <string name="high_score">Rekord:</string>
     <string name="again">Jeszcze!</string>
-    <string name="orange_points">10 pkt</string>
-    <string name="pink_points">30 pkt</string>
+    <string name="orange_points">na wódkę w klubie (10 pkt)</string>
+    <string name="pink_points">na najlepszy striptiz (30 pkt)</string>
     <string name="start">Graj!</string>
     <string name="exit">A zamkniesz ty się?</string>
     <string name="goodbye">Leszcz!</string>
     <string name="the_game">The Game</string>
-    <string name="death">śmierć</string>
+    <string name="death">budzisz się martwy w przestrzeni kosmicznej</string>
+    <string name="blue">troszeczkę spokojniej</string>
 </resources>

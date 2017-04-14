@@ -19,7 +19,8 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp">
 
         <TableRow
             android:gravity="center_vertical" >
@@ -48,6 +49,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pink_points"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:paddingLeft="10dp"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/blue"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blue"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp"
                 android:paddingLeft="10dp"

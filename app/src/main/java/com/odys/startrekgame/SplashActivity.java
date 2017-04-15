@@ -18,6 +18,7 @@ public class SplashActivity extends AppCompatActivity {
     public static MediaPlayer hitSound;
     public static MediaPlayer overSound;
     public static MediaPlayer spockSound;
+    public static MediaPlayer breaksSound;
     public static MediaPlayer muteSound;
     public static MediaPlayer muteMusic;
     
@@ -40,6 +41,7 @@ public class SplashActivity extends AppCompatActivity {
         hitSound = MediaPlayer.create(this, R.raw.hit);
         overSound = MediaPlayer.create(this, R.raw.over);
         spockSound = MediaPlayer.create(this, R.raw.spock);
+        breaksSound = MediaPlayer.create(this, R.raw.breaks);
         muteSound = MediaPlayer.create(this, R.raw.silence);
         muteMusic = MediaPlayer.create(this, R.raw.dubstep);
 

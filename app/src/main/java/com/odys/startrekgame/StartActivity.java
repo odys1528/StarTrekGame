@@ -219,7 +219,7 @@ public class StartActivity extends AppCompatActivity {
         if (0 <= blueCenterX && blueCenterX <= shipWidth && shipY <= blueCenterY && blueCenterY <= shipY + shipHeight) {
             blueX = -10;
             decreaseSpeed();
-            SplashActivity.hitSound.start();
+            SplashActivity.breaksSound.start();
         }
 
         int blackCenterX = blackX + black.getWidth() / 2;
@@ -267,7 +267,7 @@ public class StartActivity extends AppCompatActivity {
     public void decreaseSpeed() {
         orangeSpeed = Math.max(orangeSpeed / 2, 20);
         pinkSpeed = Math.max(pinkSpeed / 2, 30);
-        blackSpeed = Math.max(blackSpeed / 2, 30);
+        blackSpeed = Math.max(blackSpeed / 2, 40);
         blueSpeed = Math.max(blueSpeed / 2, 50);
     }
 

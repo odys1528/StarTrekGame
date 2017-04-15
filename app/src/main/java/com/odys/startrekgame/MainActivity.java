@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     SplashActivity.overSound.setVolume(1.0f, 1.0f);
                     SplashActivity.spockSound.setVolume(1.0f, 1.0f);
 
-                    volume.setColorFilter(R.color.colorAccent);
+                    volume.clearColorFilter();
                     SOUND_TURNED_ON = true;
                 }
             }
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     SplashActivity.backgroundMusic.setVolume(1.0f, 1.0f);
                     SplashActivity.muteMusic.start();
-                    note.setColorFilter(R.color.colorAccent);
+                    note.clearColorFilter();
                     MUSIC_TURNED_ON = true;
                 }
             }

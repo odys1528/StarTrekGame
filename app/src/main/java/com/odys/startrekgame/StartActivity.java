@@ -38,6 +38,14 @@ public class StartActivity extends AppCompatActivity {
     private int orangeSpeed;
     private int blackSpeed;
     private int blueSpeed;
+    private final int parameter = 1;
+    private final int DEFAULT_SHIP_SPEED = 20 / parameter;
+    private final int DEFAULT_PINK_SPEED = 30 / parameter;
+    private final int DEFAULT_ORANGE_SPEED = 20 / parameter;
+    private final int DEFAULT_BLACK_SPEED = 40 / parameter;
+    private final int DEFAULT_BLUE_SPEED = 50 / parameter;
+
+
 
     //size
     private int frameHeight;
@@ -112,11 +120,11 @@ public class StartActivity extends AppCompatActivity {
         screenWidth = size.x;
         screenHeight = size.y;
 
-        shipSpeed = 20;
-        orangeSpeed = 20;
-        pinkSpeed = 30;
-        blackSpeed = 40;
-        blueSpeed = 50;
+        shipSpeed = DEFAULT_SHIP_SPEED;
+        orangeSpeed = DEFAULT_ORANGE_SPEED;
+        pinkSpeed = DEFAULT_PINK_SPEED;
+        blackSpeed = DEFAULT_BLACK_SPEED;
+        blueSpeed = DEFAULT_BLUE_SPEED;
 
         /*
         Log.v("SPEED_SHIP", shipSpeed+"");
@@ -265,10 +273,10 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void decreaseSpeed() {
-        orangeSpeed = Math.max(orangeSpeed / 2, 20);
-        pinkSpeed = Math.max(pinkSpeed / 2, 30);
-        blackSpeed = Math.max(blackSpeed / 2, 40);
-        blueSpeed = Math.max(blueSpeed / 2, 50);
+        orangeSpeed = Math.max(orangeSpeed / 2, DEFAULT_ORANGE_SPEED);
+        pinkSpeed = Math.max(pinkSpeed / 2, DEFAULT_PINK_SPEED);
+        blackSpeed = Math.max(blackSpeed / 2, DEFAULT_BLACK_SPEED);
+        blueSpeed = Math.max(blueSpeed / 2, DEFAULT_BLUE_SPEED);
     }
 
     public boolean onTouchEvent(MotionEvent me) {

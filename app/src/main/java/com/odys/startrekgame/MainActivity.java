@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageView volume = (ImageView) findViewById(R.id.volume);
         final ImageView note = (ImageView) findViewById(R.id.note);
+        final ImageView shop = (ImageView) findViewById(R.id.shop);
 
         volume.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
                     note.clearColorFilter();
                     MUSIC_TURNED_ON = true;
                 }
+            }
+        });
+
+        shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shop.setColorFilter(Color.WHITE);
+
+                startActivity(new Intent(getApplicationContext(), ShopActivity.class));
+                finish();
             }
         });
 

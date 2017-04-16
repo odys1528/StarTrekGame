@@ -3,10 +3,13 @@ package com.odys.startrekgame;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
@@ -18,6 +21,9 @@ public class ResultActivity extends AppCompatActivity {
 
         TextView scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         TextView highScoreLabel = (TextView) findViewById(R.id.highScoreLabel);
+
+        final ImageView menu = (ImageView) findViewById(R.id.menu);
+        final ImageView shop = (ImageView) findViewById(R.id.shop);
 
         int score = getIntent().getIntExtra("SCORE", 0);
         scoreLabel.setText(score + "");
@@ -34,6 +40,26 @@ public class ResultActivity extends AppCompatActivity {
         } else {
             highScoreLabel.setText(getString(R.string.high_score) + " " + highScore);
         }
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                menu.setColorFilter(Color.WHITE);
+
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+            }
+        });
+
+        shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shop.setColorFilter(Color.WHITE);
+
+                startActivity(new Intent(getApplicationContext(), ShopActivity.class));
+                finish();
+            }
+        });
     }
 
 

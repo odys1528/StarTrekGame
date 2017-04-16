@@ -48,4 +48,13 @@ public class ResultActivity extends AppCompatActivity {
         System.exit(0);
 
     }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+
+        return super.dispatchKeyEvent(event);
+    }
 }

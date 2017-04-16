@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.widget.ProgressBar;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
@@ -73,6 +74,14 @@ public class SplashActivity extends AppCompatActivity {
 
         thread.start();
 
+    }
 
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+
+        return super.dispatchKeyEvent(event);
     }
 }

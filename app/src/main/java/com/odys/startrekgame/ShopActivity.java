@@ -37,7 +37,7 @@ public class ShopActivity extends AppCompatActivity {
             }
         });
 
-        int money = PocketMoney.getMoney();
+        final int money = PocketMoney.getMoney();
         final TextView wallet = (TextView) findViewById(R.id.cash);
         wallet.setText(getString(R.string.cash) + " " + money);
 
@@ -66,7 +66,7 @@ public class ShopActivity extends AppCompatActivity {
         final Button [] buttons = {button1, button2, button3, button4, button5, button6};
 
         final int price1 = 0;
-        final int price2 = 5000;
+        final int price2 = 0;
         final int price3 = 10000;
         final int price4 = 50000;
         final int price5 = 100000;
@@ -149,7 +149,7 @@ public class ShopActivity extends AppCompatActivity {
                 ships[0].setImageResource(R.drawable.ship);
                 titles[0].setText(getString(R.string.ship1));
                 PocketMoney.spendMoney(price1);
-                wallet.setText(getString(R.string.cash) + " " + PocketMoney.getMoney());
+                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -166,7 +166,7 @@ public class ShopActivity extends AppCompatActivity {
                 ships[1].setImageResource(R.drawable.constitution);
                 titles[1].setText(getString(R.string.ship2));
                 PocketMoney.spendMoney(price2);
-                wallet.setText(getString(R.string.cash) + " " + PocketMoney.getMoney());
+                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -183,7 +183,7 @@ public class ShopActivity extends AppCompatActivity {
                 ships[2].setImageResource(R.drawable.heavyshuttle);
                 titles[2].setText(getString(R.string.ship3));
                 PocketMoney.spendMoney(price3);
-                wallet.setText(getString(R.string.cash) + " " + PocketMoney.getMoney());
+                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -200,7 +200,7 @@ public class ShopActivity extends AppCompatActivity {
                 ships[3].setImageResource(R.drawable.copernicus);
                 titles[3].setText(getString(R.string.ship4));
                 PocketMoney.spendMoney(price4);
-                wallet.setText(getString(R.string.cash) + " " + PocketMoney.getMoney());
+                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -217,7 +217,7 @@ public class ShopActivity extends AppCompatActivity {
                 ships[4].setImageResource(R.drawable.dorsalnacelles);
                 titles[4].setText(getString(R.string.ship5));
                 PocketMoney.spendMoney(price5);
-                wallet.setText(getString(R.string.cash) + " " + PocketMoney.getMoney());
+                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -234,7 +234,7 @@ public class ShopActivity extends AppCompatActivity {
                 ships[5].setImageResource(R.mipmap.box);
                 titles[5].setText(getString(R.string.ship1));
                 PocketMoney.spendMoney(price6);
-                wallet.setText(getString(R.string.cash) + " " + PocketMoney.getMoney());
+                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }

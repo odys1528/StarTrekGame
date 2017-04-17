@@ -21,7 +21,7 @@ public class ShopActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shop);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
+        final SharedPreferences.Editor editor = settings.edit();
         editor.putInt("MONEY", PocketMoney.getMoney());
         editor.commit();
 
@@ -47,7 +47,7 @@ public class ShopActivity extends AppCompatActivity {
         ImageView ship4 = (ImageView) findViewById(R.id.ship4);
         ImageView ship5 = (ImageView) findViewById(R.id.ship5);
         ImageView ship6 = (ImageView) findViewById(R.id.ship6);
-        ImageView [] ships = {ship1, ship2, ship3, ship4, ship5, ship6};
+        final ImageView [] ships = {ship1, ship2, ship3, ship4, ship5, ship6};
 
         TextView title1 = (TextView) findViewById(R.id.title1);
         TextView title2 = (TextView) findViewById(R.id.title2);
@@ -55,7 +55,7 @@ public class ShopActivity extends AppCompatActivity {
         TextView title4 = (TextView) findViewById(R.id.title4);
         TextView title5 = (TextView) findViewById(R.id.title5);
         TextView title6 = (TextView) findViewById(R.id.title6);
-        TextView [] titles = {title1, title2, title3, title4, title5, title6};
+        final TextView [] titles = {title1, title2, title3, title4, title5, title6};
 
         Button button1 = (Button) findViewById(R.id.button1);
         Button button2 = (Button) findViewById(R.id.button2);
@@ -63,7 +63,7 @@ public class ShopActivity extends AppCompatActivity {
         Button button4 = (Button) findViewById(R.id.button4);
         Button button5 = (Button) findViewById(R.id.button5);
         Button button6 = (Button) findViewById(R.id.button6);
-        Button [] buttons = {button1, button2, button3, button4, button5, button6};
+        final Button [] buttons = {button1, button2, button3, button4, button5, button6};
 
         final int price1 = 0;
         final int price2 = 5000;
@@ -73,19 +73,20 @@ public class ShopActivity extends AppCompatActivity {
         final int price6 = 1000000;
         final int [] prices = {price1, price2, price3, price4, price5, price6};
 
-        int SHIPS_NUMBER = 6;
-        int AFFORDABLE = 1;
-        int UNAFFORDABLE = 2;
-        int OWNED = 3;
-        int OTHER = 0;
-        int status1 = OWNED;
-        int status2 = OTHER;
-        int status3 = OTHER;
-        int status4 = OTHER;
-        int status5 = OTHER;
-        int status6 = OTHER;
-        int [] statuses = {status1, status2, status3, status4, status5, status6};
+        final int SHIPS_NUMBER = 6;
+        final int AFFORDABLE = 1;
+        final int UNAFFORDABLE = 2;
+        final int OWNED = 3;
+        final int OTHER = 0;
+        int status1 = settings.getInt("SHIP1", OWNED);
+        int status2 = settings.getInt("SHIP2", OTHER);
+        int status3 = settings.getInt("SHIP3", OTHER);
+        int status4 = settings.getInt("SHIP4", OTHER);
+        int status5 = settings.getInt("SHIP5", OTHER);
+        int status6 = settings.getInt("SHIP6", OTHER);
+        final int [] statuses = {status1, status2, status3, status4, status5, status6};
 
+        //init loop
         for(int i = 0; i < SHIPS_NUMBER; i++) {
             if(statuses[i] != OWNED) {
                 if(prices[i] <= money) {
@@ -136,6 +137,102 @@ public class ShopActivity extends AppCompatActivity {
 
             }
         }
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                statuses[0] = OWNED;
+                editor.putInt("SHIP1", statuses[0]);
+                editor.commit();
+                buttons[0].setEnabled(false);
+                buttons[0].setText(getString(R.string.owned));
+                ships[0].setImageResource(R.drawable.ship);
+                titles[0].setText(getString(R.string.ship1));
+                PocketMoney.spendMoney(price1);
+                editor.putInt("MONEY", PocketMoney.getMoney());
+                editor.commit();
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                statuses[1] = OWNED;
+                editor.putInt("SHIP2", statuses[1]);
+                editor.commit();
+                buttons[1].setEnabled(false);
+                buttons[1].setText(getString(R.string.owned));
+                ships[1].setImageResource(R.drawable.constitution);
+                titles[1].setText(getString(R.string.ship2));
+                PocketMoney.spendMoney(price2);
+                editor.putInt("MONEY", PocketMoney.getMoney());
+                editor.commit();
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                statuses[2] = OWNED;
+                editor.putInt("SHIP3", statuses[2]);
+                editor.commit();
+                buttons[2].setEnabled(false);
+                buttons[2].setText(getString(R.string.owned));
+                ships[2].setImageResource(R.drawable.heavyshuttle);
+                titles[2].setText(getString(R.string.ship3));
+                PocketMoney.spendMoney(price3);
+                editor.putInt("MONEY", PocketMoney.getMoney());
+                editor.commit();
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                statuses[3] = OWNED;
+                editor.putInt("SHIP4", statuses[3]);
+                editor.commit();
+                buttons[3].setEnabled(false);
+                buttons[3].setText(getString(R.string.owned));
+                ships[3].setImageResource(R.drawable.copernicus);
+                titles[3].setText(getString(R.string.ship4));
+                PocketMoney.spendMoney(price4);
+                editor.putInt("MONEY", PocketMoney.getMoney());
+                editor.commit();
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                statuses[4] = OWNED;
+                editor.putInt("SHIP5", statuses[4]);
+                editor.commit();
+                buttons[4].setEnabled(false);
+                buttons[4].setText(getString(R.string.owned));
+                ships[4].setImageResource(R.drawable.dorsalnacelles);
+                titles[4].setText(getString(R.string.ship5));
+                PocketMoney.spendMoney(price5);
+                editor.putInt("MONEY", PocketMoney.getMoney());
+                editor.commit();
+            }
+        });
+
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                statuses[5] = OWNED;
+                editor.putInt("SHIP6", statuses[5]);
+                editor.commit();
+                buttons[5].setEnabled(false);
+                buttons[5].setText(getString(R.string.owned));
+                ships[5].setImageResource(R.mipmap.box);
+                titles[5].setText(getString(R.string.ship1));
+                PocketMoney.spendMoney(price6);
+                editor.putInt("MONEY", PocketMoney.getMoney());
+                editor.commit();
+            }
+        });
 
     }
 

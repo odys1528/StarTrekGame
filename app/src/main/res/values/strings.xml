@@ -17,4 +17,15 @@
     <string name="cash">Hajs:</string>
     <string name="shop_title">The Ship Shop</string>
     <string name="sample_text">sample text</string>
+    <string name="owned">masz już</string>
+    <string name="affordable">kup!</string>
+    <string name="unaffordable">nie stać cię</string>
+    <string name="ship1">Bonaventure</string>
+    <string name="ship2">Constitution</string>
+    <string name="ship3">Heavy Shuttle</string>
+    <string name="ship4">Copernicus</string>
+    <string name="ship5">Tubular shuttle</string>
+    <string name="ship6">Surprise</string>
+    <string name="ship_def_name">\u003Chidden\u003E</string>
+
 </resources>

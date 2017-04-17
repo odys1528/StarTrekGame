@@ -26,6 +26,7 @@ public class ResultActivity extends AppCompatActivity {
         final ImageView shop = (ImageView) findViewById(R.id.shop);
 
         int score = getIntent().getIntExtra("SCORE", 0);
+        ShopActivity.money += score;
         scoreLabel.setText(score + "");
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);

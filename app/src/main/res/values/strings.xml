@@ -27,5 +27,6 @@
     <string name="ship5">Tubular shuttle</string>
     <string name="ship6">Surprise</string>
     <string name="ship_def_name">\u003Chidden\u003E</string>
+    <string name="pick">Wybierz statek</string>
 
 </resources>

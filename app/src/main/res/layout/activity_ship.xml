@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.odys.startrekgame.ShipActivity"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pick"
+        android:textColor="@color/colorAccent"
+        android:gravity="center_horizontal"
+        android:textSize="40sp"
+        android:layout_marginTop="10dp"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:spinnerMode="dialog"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:prompt="@string/pick"
+        android:layout_marginTop="50dp"
+        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+        android:background="#55ffffff">
+    </Spinner>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="@string/start"
+        android:id="@+id/button"/>
+
+</LinearLayout>

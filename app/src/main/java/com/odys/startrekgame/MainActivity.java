@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startGame(View view) {
-        startActivity(new Intent(getApplicationContext(), StartActivity.class));
+        startActivity(new Intent(getApplicationContext(), ShipActivity.class));
         finish();
     }
 

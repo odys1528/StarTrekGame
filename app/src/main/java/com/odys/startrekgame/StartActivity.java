@@ -45,8 +45,6 @@ public class StartActivity extends AppCompatActivity {
     private final int DEFAULT_BLACK_SPEED = 40 / parameter;
     private final int DEFAULT_BLUE_SPEED = 50 / parameter;
 
-
-
     //size
     private int frameHeight;
     private int shipHeight;
@@ -76,11 +74,12 @@ public class StartActivity extends AppCompatActivity {
     private boolean action_flag = false;
     private boolean start_flag = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        int shipId = getIntent().getIntExtra("SHIP", 0);
 
         //moving background
         final ImageView backgroundOne = (ImageView) findViewById(R.id.background_one);
@@ -111,6 +110,27 @@ public class StartActivity extends AppCompatActivity {
         blue = (ImageView) findViewById(R.id.blue);
 
 
+        switch (shipId) {
+            case 0:
+                ship.setImageResource(R.drawable.ship);
+                break;
+            case 1:
+                ship.setImageResource(R.drawable.constitution);
+                break;
+            case 2:
+                ship.setImageResource(R.drawable.heavyshuttle);
+                break;
+            case 3:
+                ship.setImageResource(R.drawable.copernicus);
+                break;
+            case 4:
+                ship.setImageResource(R.drawable.dorsalnacelles);
+                break;
+            case 5:
+                ship.setImageResource(R.mipmap.box);
+                break;
+        }
+
         //get screen size
         WindowManager wm = getWindowManager();
         Display disp = wm.getDefaultDisplay();
@@ -125,13 +145,6 @@ public class StartActivity extends AppCompatActivity {
         pinkSpeed = DEFAULT_PINK_SPEED;
         blackSpeed = DEFAULT_BLACK_SPEED;
         blueSpeed = DEFAULT_BLUE_SPEED;
-
-        /*
-        Log.v("SPEED_SHIP", shipSpeed+"");
-        Log.v("SPEED_ORANGE", orangeSpeed+"");
-        Log.v("SPEED_PINK", pinkSpeed+"");
-        Log.v("SPEED_BLACK", blackSpeed+"");
-        */
 
         //move out of screen
         orange.setX(10000);

@@ -28,9 +28,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultActivity" android:screenOrientation="landscape"/>
-        <activity android:name=".StartActivity" android:screenOrientation="landscape"/>
-        <activity android:name=".ShopActivity" android:screenOrientation="landscape"/>
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".StartActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ShopActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ShipActivity"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 package com.odys.startrekgame;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
+        PocketMoney.setMoney(settings.getInt("MONEY", 0));
 
         final ImageView volume = (ImageView) findViewById(R.id.volume);
         final ImageView note = (ImageView) findViewById(R.id.note);

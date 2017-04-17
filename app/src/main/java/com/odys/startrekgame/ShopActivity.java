@@ -1,7 +1,9 @@
 package com.odys.startrekgame;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,12 +15,15 @@ import android.widget.TextView;
 
 public class ShopActivity extends AppCompatActivity {
 
-    public static int money = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
+
+        SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("MONEY", PocketMoney.getMoney());
+        editor.commit();
 
         final ImageView menu = (ImageView) findViewById(R.id.menu);
 
@@ -31,6 +36,10 @@ public class ShopActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        int money = PocketMoney.getMoney();
+        TextView wallet = (TextView) findViewById(R.id.cash);
+        wallet.setText(getString(R.string.cash) + " " + money);
 
         ImageView ship1 = (ImageView) findViewById(R.id.ship1);
         ImageView ship2 = (ImageView) findViewById(R.id.ship2);
@@ -82,17 +91,15 @@ public class ShopActivity extends AppCompatActivity {
                 if(prices[i] <= money) {
                     statuses[i] = AFFORDABLE;
                     buttons[i].setEnabled(true);
-                    buttons[i].setText(getString(R.string.affordable));
                     ships[i].clearColorFilter();
 
                 } else {
                     statuses[i] = UNAFFORDABLE;
                     buttons[i].setEnabled(false);
-                    buttons[i].setText(getString(R.string.unaffordable));
                     ships[i].setColorFilter(Color.GRAY);
 
                 }
-
+                buttons[i].setText(String.valueOf(prices[i]));
                 titles[i].setText(getString(R.string.ship_def_name));
 
             } else {

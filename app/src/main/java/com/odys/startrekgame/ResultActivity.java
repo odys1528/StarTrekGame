@@ -19,23 +19,26 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+
         TextView scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         TextView highScoreLabel = (TextView) findViewById(R.id.highScoreLabel);
 
         final ImageView menu = (ImageView) findViewById(R.id.menu);
         final ImageView shop = (ImageView) findViewById(R.id.shop);
 
-        int score = getIntent().getIntExtra("SCORE", 0);
-        ShopActivity.money += score;
+        final int score = getIntent().getIntExtra("SCORE", 0);
         scoreLabel.setText(score + "");
+        PocketMoney.addMoney(score);
+        editor.putInt("MONEY", PocketMoney.getMoney());
+        editor.commit();
 
-        SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("HIGH_SCORE", 0);
 
         if (score > highScore) {
             highScoreLabel.setText(getString(R.string.high_score) + " " + score);
 
-            SharedPreferences.Editor editor = settings.edit();
             editor.putInt("HIGH_SCORE", score);
             editor.commit();
         } else {

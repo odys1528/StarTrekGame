@@ -68,7 +68,7 @@ public class ResultActivity extends AppCompatActivity {
 
 
     public void tryAgain(View view) {
-        startActivity(new Intent(getApplicationContext(), StartActivity.class));
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
 

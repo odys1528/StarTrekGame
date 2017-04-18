@@ -39,9 +39,29 @@ public class ShopActivity extends AppCompatActivity {
             }
         });
 
-        final int money = PocketMoney.getMoney();
         final TextView wallet = (TextView) findViewById(R.id.cash);
-        wallet.setText(getString(R.string.cash) + " " + money);
+        wallet.setText(getString(R.string.cash) + " " + PocketMoney.getMoney());
+
+        Thread t = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                wallet.setText(getString(R.string.cash) + " " + PocketMoney.getMoney());
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        t.start();
 
         ImageView ship1 = (ImageView) findViewById(R.id.ship1);
         ImageView ship2 = (ImageView) findViewById(R.id.ship2);
@@ -91,7 +111,7 @@ public class ShopActivity extends AppCompatActivity {
         //init loop
         for(int i = 0; i < SHIPS_NUMBER; i++) {
             if(statuses[i] != OWNED) {
-                if(prices[i] <= money) {
+                if(prices[i] <= PocketMoney.getMoney()) {
                     statuses[i] = AFFORDABLE;
                     buttons[i].setEnabled(true);
                     ships[i].clearColorFilter();
@@ -151,7 +171,6 @@ public class ShopActivity extends AppCompatActivity {
                 ships[0].setImageResource(R.drawable.ship);
                 titles[0].setText(getString(R.string.ship1));
                 PocketMoney.spendMoney(price1);
-                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -168,7 +187,6 @@ public class ShopActivity extends AppCompatActivity {
                 ships[1].setImageResource(R.drawable.constitution);
                 titles[1].setText(getString(R.string.ship2));
                 PocketMoney.spendMoney(price2);
-                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -185,7 +203,6 @@ public class ShopActivity extends AppCompatActivity {
                 ships[2].setImageResource(R.drawable.heavyshuttle);
                 titles[2].setText(getString(R.string.ship3));
                 PocketMoney.spendMoney(price3);
-                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -202,7 +219,6 @@ public class ShopActivity extends AppCompatActivity {
                 ships[3].setImageResource(R.drawable.copernicus);
                 titles[3].setText(getString(R.string.ship4));
                 PocketMoney.spendMoney(price4);
-                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -219,7 +235,6 @@ public class ShopActivity extends AppCompatActivity {
                 ships[4].setImageResource(R.drawable.dorsalnacelles);
                 titles[4].setText(getString(R.string.ship5));
                 PocketMoney.spendMoney(price5);
-                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }
@@ -236,7 +251,6 @@ public class ShopActivity extends AppCompatActivity {
                 ships[5].setImageResource(R.mipmap.box);
                 titles[5].setText(getString(R.string.ship1));
                 PocketMoney.spendMoney(price6);
-                wallet.setText(getString(R.string.cash) + " " + money);
                 editor.putInt("MONEY", PocketMoney.getMoney());
                 editor.commit();
             }

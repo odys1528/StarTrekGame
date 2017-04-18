@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     SplashActivity.overSound.setVolume(0.0f, 0.0f);
                     SplashActivity.spockSound.setVolume(0.0f, 0.0f);
                     SplashActivity.breaksSound.setVolume(0.0f, 0.0f);
+                    SplashActivity.shopSound.setVolume(0.0f, 0.0f);
 
                     SplashActivity.muteSound.start();
                     volume.setColorFilter(Color.WHITE);
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     SplashActivity.overSound.setVolume(1.0f, 1.0f);
                     SplashActivity.spockSound.setVolume(1.0f, 1.0f);
                     SplashActivity.breaksSound.setVolume(1.0f, 1.0f);
+                    SplashActivity.shopSound.setVolume(1.0f, 1.0f);
 
                     volume.clearColorFilter();
                     SOUND_TURNED_ON = true;

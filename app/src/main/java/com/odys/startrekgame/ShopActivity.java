@@ -20,6 +20,8 @@ public class ShopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
+        SplashActivity.shopSound.start();
+
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = settings.edit();
         editor.putInt("MONEY", PocketMoney.getMoney());

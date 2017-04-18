@@ -22,6 +22,7 @@ public class SplashActivity extends AppCompatActivity {
     public static MediaPlayer breaksSound;
     public static MediaPlayer muteSound;
     public static MediaPlayer muteMusic;
+    public static MediaPlayer shopSound;
     
 
     @Override
@@ -45,6 +46,7 @@ public class SplashActivity extends AppCompatActivity {
         breaksSound = MediaPlayer.create(this, R.raw.breaks);
         muteSound = MediaPlayer.create(this, R.raw.silence);
         muteMusic = MediaPlayer.create(this, R.raw.dubstep);
+        shopSound = MediaPlayer.create(this, R.raw.shop);
 
         loadingSound = MediaPlayer.create(this, R.raw.loading);
         loadingSound.start();

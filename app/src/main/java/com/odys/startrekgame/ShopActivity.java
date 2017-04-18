@@ -68,11 +68,11 @@ public class ShopActivity extends AppCompatActivity {
         final Button [] buttons = {button1, button2, button3, button4, button5, button6};
 
         final int price1 = 0;
-        final int price2 = 5000;
-        final int price3 = 10000;
-        final int price4 = 50000;
-        final int price5 = 100000;
-        final int price6 = 1000000;
+        final int price2 = 500;
+        final int price3 = 1000;
+        final int price4 = 5000;
+        final int price5 = 10000;
+        final int price6 = 100000;
         final int [] prices = {price1, price2, price3, price4, price5, price6};
 
         final int SHIPS_NUMBER = 6;

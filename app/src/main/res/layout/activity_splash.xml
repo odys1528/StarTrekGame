@@ -6,26 +6,27 @@
     android:background="@drawable/background">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_marginTop="80dp">
+        android:layout_gravity="center_horizontal|top"
+        android:gravity="center_horizontal"
+        android:layout_weight="100">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/title"
-            android:layout_gravity="center"
-            android:paddingLeft="35dp"/>
+            android:layout_gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/the_game"
             android:textColor="@color/colorAccent"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginStart="20dp"/>
     </LinearLayout>
 
     <ProgressBar
@@ -36,7 +37,8 @@
         android:max="100"
         android:progress="0"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_weight="5"/>
 
     <ProgressBar
         android:id="@+id/progress_bar2"
@@ -45,6 +47,7 @@
         android:layout_height="50dp"
         android:max="100"
         android:progress="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="5"/>
 
 </LinearLayout>

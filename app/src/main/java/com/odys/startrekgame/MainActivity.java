@@ -13,8 +13,8 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean SOUND_TURNED_ON = true;
-    private boolean MUSIC_TURNED_ON = true;
+    private boolean SOUND_TURNED_ON;
+    private boolean MUSIC_TURNED_ON;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,22 @@ public class MainActivity extends AppCompatActivity {
         final ImageView volume = (ImageView) findViewById(R.id.volume);
         final ImageView note = (ImageView) findViewById(R.id.note);
         final ImageView shop = (ImageView) findViewById(R.id.shop);
+
+        final SharedPreferences.Editor editor = settings.edit();
+        SOUND_TURNED_ON = settings.getBoolean("SOUND", true);
+        MUSIC_TURNED_ON = settings.getBoolean("MUSIC", true);
+
+        if(SOUND_TURNED_ON) {
+            volume.clearColorFilter();
+        } else {
+            volume.setColorFilter(Color.WHITE);
+        }
+
+        if(MUSIC_TURNED_ON) {
+            note.clearColorFilter();
+        } else {
+            note.setColorFilter(Color.WHITE);
+        }
 
         volume.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
                     volume.clearColorFilter();
                     SOUND_TURNED_ON = true;
                 }
+                editor.putBoolean("SOUND", SOUND_TURNED_ON);
+                editor.commit();
             }
         });
 
@@ -69,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
                     note.clearColorFilter();
                     MUSIC_TURNED_ON = true;
                 }
+                editor.putBoolean("MUSIC", MUSIC_TURNED_ON);
+                editor.commit();
             }
         });
 

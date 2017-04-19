@@ -29,19 +29,8 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ship);
 
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
-                intent.putExtra("SHIP", item);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         // Spinner element
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
         // Spinner click listener
         spinner.setOnItemSelectedListener(this);
@@ -78,6 +67,18 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(dataAdapter);
 
         spinner.setSelection(0);
+
+        Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                intent.putExtra("SHIP", item);
+                spinner.setVisibility(View.GONE);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 

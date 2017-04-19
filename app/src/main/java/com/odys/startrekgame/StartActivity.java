@@ -221,7 +221,7 @@ public class StartActivity extends AppCompatActivity {
             orangeX = -10;
             score += 10;
             increaseSpeed();
-            SplashActivity.hitSound.start();
+            SplashActivity.hitSound1.start();
         }
 
         int pinkCenterX = pinkX + pink.getWidth() / 2;
@@ -231,7 +231,7 @@ public class StartActivity extends AppCompatActivity {
             pinkX = -10;
             score += 30;
             increaseSpeed();
-            SplashActivity.hitSound.start();
+            SplashActivity.hitSound2.start();
         }
 
         int blueCenterX = blueX + blue.getWidth() / 2;

@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (SOUND_TURNED_ON) {
-                    SplashActivity.hitSound.setVolume(0.0f, 0.0f);
+                    SplashActivity.hitSound1.setVolume(0.0f, 0.0f);
+                    SplashActivity.hitSound2.setVolume(0.0f, 0.0f);
                     SplashActivity.overSound.setVolume(0.0f, 0.0f);
                     SplashActivity.spockSound.setVolume(0.0f, 0.0f);
                     SplashActivity.breaksSound.setVolume(0.0f, 0.0f);
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
                     volume.setColorFilter(Color.WHITE);
                     SOUND_TURNED_ON = false;
                 } else {
-                    SplashActivity.hitSound.setVolume(1.0f, 1.0f);
+                    SplashActivity.hitSound1.setVolume(1.0f, 1.0f);
+                    SplashActivity.hitSound2.setVolume(1.0f, 1.0f);
                     SplashActivity.overSound.setVolume(1.0f, 1.0f);
                     SplashActivity.spockSound.setVolume(1.0f, 1.0f);
                     SplashActivity.breaksSound.setVolume(1.0f, 1.0f);

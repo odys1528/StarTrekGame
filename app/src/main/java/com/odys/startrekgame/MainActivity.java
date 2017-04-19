@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(MUSIC_TURNED_ON) {
             note.clearColorFilter();
-            SplashActivity.backgroundMusic.setVolume(1.0f, 1.0f);
+            SplashActivity.backgroundMusic.setVolume(0.5f, 0.5f);
         } else {
             note.setColorFilter(Color.WHITE);
             SplashActivity.backgroundMusic.setVolume(0.0f, 0.0f);

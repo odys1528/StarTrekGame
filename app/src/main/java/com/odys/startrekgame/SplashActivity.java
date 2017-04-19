@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
 
         backgroundMusic = MediaPlayer.create(this, R.raw.music);
         backgroundMusic.setLooping(true);
-        backgroundMusic.setVolume(0.3f, 0.3f);
+        backgroundMusic.setVolume(0.5f, 0.5f);
         backgroundMusic.start();
 
         hitSound1 = MediaPlayer.create(this, R.raw.hit);

@@ -74,9 +74,9 @@ public class ShipActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                 intent.putExtra("SHIP", item);
-                spinner.setVisibility(View.GONE);
                 startActivity(intent);
                 finish();
+                spinner.setVisibility(View.INVISIBLE);
             }
         });
     }

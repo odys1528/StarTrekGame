@@ -34,14 +34,28 @@ public class MainActivity extends AppCompatActivity {
 
         if(SOUND_TURNED_ON) {
             volume.clearColorFilter();
+            SplashActivity.hitSound1.setVolume(1.0f, 1.0f);
+            SplashActivity.hitSound2.setVolume(1.0f, 1.0f);
+            SplashActivity.overSound.setVolume(1.0f, 1.0f);
+            SplashActivity.spockSound.setVolume(1.0f, 1.0f);
+            SplashActivity.breaksSound.setVolume(1.0f, 1.0f);
+            SplashActivity.shopSound.setVolume(1.0f, 1.0f);
         } else {
             volume.setColorFilter(Color.WHITE);
+            SplashActivity.hitSound1.setVolume(0.0f, 0.0f);
+            SplashActivity.hitSound2.setVolume(0.0f, 0.0f);
+            SplashActivity.overSound.setVolume(0.0f, 0.0f);
+            SplashActivity.spockSound.setVolume(0.0f, 0.0f);
+            SplashActivity.breaksSound.setVolume(0.0f, 0.0f);
+            SplashActivity.shopSound.setVolume(0.0f, 0.0f);
         }
 
         if(MUSIC_TURNED_ON) {
             note.clearColorFilter();
+            SplashActivity.backgroundMusic.setVolume(1.0f, 1.0f);
         } else {
             note.setColorFilter(Color.WHITE);
+            SplashActivity.backgroundMusic.setVolume(0.0f, 0.0f);
         }
 
         volume.setOnClickListener(new View.OnClickListener() {
